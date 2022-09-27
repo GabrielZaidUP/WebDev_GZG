@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="sieve"></div>
+
+  <script>
+
+    
+function isPrime(num) {
+            for(var i = 2; i < num; i++ ) {
+                if(num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+    
+function eratosthenes(num){
+var Limit = Math.sqrt(num), sieve = [], array = [];
+    
+for (var i = 0; i < num; i++) {
+    array.push(true);
+}
+// if its in the limit
+for (var i = 2; i <= Limit; i++) {
+    if (array[i]) {
+      
+      //if it is a multiple for loop 
+        for (var j = i * i; j < num ; j += i) {
+            array[j] = false;
+        }
+    }
+}
+    //push data into the sieve
+for (var i = 2; i < num; i++) {
+    if(array[i]) {
+        sieve.push(i);
+    }
+}
+
+    if(isPrime(num)){
+    sieve.push(num);
+  }
+return sieve;
+};
+    
+    document.getElementById("sieve").innerHTML = eratosthenes(300).join(" ");
+  </script>
+  
+</body>
+</html>
