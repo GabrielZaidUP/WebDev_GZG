@@ -1,3 +1,4 @@
+
 /*
     Fibonacci Sequence - Enter a number and have the program
     generate the Fibonacci sequence to that number or to the Nth number.
@@ -18,31 +19,18 @@ function f(n) {
     // Check if the memory array already contains the requested number
     if (memo.hasOwnProperty(n)) {
         value = memo[n];
-    } else {
+    } 
+    else{
         //TODO: Implement the fibonacci function here!
-
+        if(n > 1) {
+            value = f(n-1) + f(n-2);
+        }
+        else {
+            value = n ;
+        }
         memo[n] = value;
-        let n1 = 0, n2 = 1, nextN;
-
-console.log('Fibonacci Series:');
-console.log(n1); // print 0
-console.log(n2); // print 1
-
-nextN = n1 + n2;
-
-while (nextN<= value) {
-
-    // print the next term
-    console.log(nextN);
-
-    n1 = n2;
-    n2 = nextN;
-    nextN = n1 + n2;
-}
     }
 
     return value;
 }
-console.log(fibonacci(15));
-
-
+//console.log(fibonacci(15));
